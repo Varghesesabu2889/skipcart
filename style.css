@@ -1,0 +1,19 @@
+.card-container {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: auto auto auto;
+  }
+  
+  .img-sec img {
+    width: 300px;
+    height: 250px;
+    border-radius: 2px;
+  }
+  .main-card {
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    margin-left: 100px;
+    margin-right: 30px;
+    
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E commerce website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body>
+  <!-- navbar -->
+  <!-- Just an image -->
+<nav class="navbar navbar-dark bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img
+        src="./assets/icon.png"
+        height="20"
+        alt="MDB Logo"
+        loading="lazy"
+      />
+    </a>
+  </div>
+</nav>
+  <!-- carousal -->
+
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="./assets/car.png" height="500px" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="./assets/car2.png" height="500px" class="d-block w-100" alt="">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="./assets/car3.png" height="500px" class="d-block w-100" alt="">
+      </div>
+      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- products -->
+  <center>
+    <h1 class="text-primary "> PRODUCTS</h1>
+    <div class="container">
+    
+    </div>
+  </center>
+<center>
+ 
+          <div class="row" id="result"></div>
+        </div>
+      </div>
+      </center>
+    </div>
+    <!-- footer -->
+    <footer class="bg-body-tertiary text-center">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+         
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgb(159, 157, 208);">
+        © 2020 Copyright:
+        <a class="text-body" href="">v-cart.com</a>
+
+      </div>
+      <!-- <div>
+         <h4 style="color:aqua;">Designed & Developed by <br>Varghese Sabu</h4> -->
+
+      <!-- </div>  -->
+      <!-- Copyright -->
+    </footer>
+    <script>
+      fetch("https://dummyjson.com/carts")
+        .then((data) => data.json())
+        .then((cartArray) => displayData(cartArray))
+
+      function displayData(cartArray) {
+       
+
+        if (cartArray && cartArray.carts) {
+         
+
+          cartArray.carts.forEach((cart) => {
+            cart.products.forEach((product) => {
+              htmlData = ` <div class="col-6 col-md-5 col-lg-5 mb-2">
+
+      <div class="main-card" >
+      <div class="img-sec">
+      <img src="${product.thumbnail}" alt="thumbnail">
+    
+    </div>
+
+    <div class="desc">
+      <h6>ITEM ID:${product.id}</h6>
+      <h4>${product.title}</h4>
+     
+      <h5>QUANTITY: ${product.quantity}</h5>
+      <h5>TOTAL: ${product.total}</h5>
+      <h5>DISCOUNT: ${product.discountedPrice}</h5>
+      <p>$${product.price}</p>
+      <button type="button" class="btn btn-success">Buy now</button>
+    </div>
+    </div>`
+              result.innerHTML += htmlData
+            })
+          })
+        }
+      }
+    </script>
+  </body>
+</html>
